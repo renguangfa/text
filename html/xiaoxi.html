@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <link rel="stylesheet" type="text/css" href="../css/aui.css" />
+    <style type="text/css">
+        .aui-bar-nav {
+            background-color: #37363b;
+        }
+
+        .nav {
+          height: 41px;
+          width: 100%;
+          text-align: center;
+          background-color: #fff;
+          color: #fff;
+          line-height: 44px;
+          font-size: 20px;
+        }
+          .list {
+
+
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-orient: horizontal;
+            -webkit-flex-flow: row;
+            flex-flow: row;
+            position: relative;
+            width: 95%;
+            height: 40px;
+            background-color: #fff;
+            /*border-bottom: 1px solid #ececec;*/
+          }
+          .list .menu {
+              -webkit-box-flex: 1;
+              -webkit-flex: 1;
+              flex: 1;
+              width: 100%;
+              height: 40px;
+              line-height: 40px;
+              font-size: 14px;
+              color: #404041;
+              text-align: center;
+          }
+          .list .selected {
+              font-size: 14px;
+              color: #00a7ff;
+              font-weight: bolder;
+          }
+    </style>
+</head>
+<body>
+  23132321
+    <!-- <header id="aui-header">
+      <div class="nav" id="nav">
+          <div class="list">
+            <div class="menu selected" tapmode="selected" onclick="fnSetNavMenuIndex(0);">话题</div>
+            <div class="menu" tapmode="selected" onclick="fnSetNavMenuIndex(1);">帖子</div>
+            <div class="menu" tapmode="selected" onclick="fnSetNavMenuIndex(2);">用户</div>
+
+          </div>
+      </div>
+
+    </header> -->
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript">
+    apiready = function(){
+        // api.parseTapmode();
+        // var header = $api.byId('aui-header');
+        // $api.fixStatusBar(header);
+        // var headerPos = $api.offset(header);
+        // var body_h = $api.offset($api.dom('body')).h;
+        // api.openFrame({
+        //     name: 'xiaoxi.html_frm',
+        //     url: 'xiaoxi.html_frm.html',
+        //     bounces: true,
+        //     rect: {
+        //         x: 0,
+        //         y: headerPos.h,
+        //         w: 'auto',
+        //         h: 'auto'
+        //     }
+        // })
+    };
+
+</script>
+</html>

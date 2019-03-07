@@ -1,0 +1,224 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, initial-scale=1.0, width=device-width" />
+    <meta name="format-detection" content="telephone=no, email=no, date=no, address=no">
+    <title>搜索</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <link rel="stylesheet" type="text/css" href="../css/aui.css" />
+    <style>
+    html,
+    body {
+        height: 100%;
+        /*background-color: #eef0f8;*/
+        background-color: #fff;
+    }
+
+    .wrap {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-flex-flow: column;
+    }
+    header {
+        height: px;
+        width: 100%;
+        background-color: #fff;
+    }
+  .search-border {
+    background-color: #efefef;
+  }
+  #search {
+
+    position: relative;
+    width: 97%;
+    height: 54px;
+    background-color: #fff;
+
+  }
+  .aui-searchbar-input {
+    height: 36px;
+    border-radius: 50px ;
+  }
+  .aui-searchbar-input input {
+    height: 36px;
+
+  }
+  .search-close {
+
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #efefef;
+  }
+
+.nav {
+  height: 41px;
+  width: 100%;
+  text-align: center;
+  background-color: #fff;
+  color: #fff;
+  line-height: 44px;
+  font-size: 20px;
+}
+  .list {
+
+
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-flex-flow: row;
+    flex-flow: row;
+    position: relative;
+    width: 95%;
+    height: 40px;
+    background-color: #fff;
+    /*border-bottom: 1px solid #ececec;*/
+  }
+  .list .menu {
+      -webkit-box-flex: 1;
+      -webkit-flex: 1;
+      flex: 1;
+      width: 100%;
+      height: 40px;
+      line-height: 40px;
+      font-size: 14px;
+      color: #404041;
+      text-align: center;
+  }
+  .list .selected {
+      font-size: 14px;
+      color: #00a7ff;
+      font-weight: bolder;
+  }
+    </style>
+</head>
+
+<body class="wrap">
+<header>
+<div class="aui-searchbar" id="search">
+    <div class="aui-searchbar-input search-border">
+        <i style="line-height:36px;" class="aui-iconfont aui-icon-search"></i>
+        <form action="javascript:search();">
+            <input type="search" placeholder="搜索话题/帖子/用户" id="search-input">
+        </form>
+    </div>
+<div class="search-close" tapmode onclick="api.closeWin();"><i style="line-height:30px;margin-left:26%; " class="aui-iconfont aui-icon-close"></i></div>
+</div>
+</header>
+
+<div class="nav" id="nav">
+    <div class="list">
+      <div class="menu selected" tapmode="selected" onclick="fnSetNavMenuIndex(0);">话题</div>
+      <div class="menu" tapmode="selected" onclick="fnSetNavMenuIndex(1);">帖子</div>
+      <div class="menu" tapmode="selected" onclick="fnSetNavMenuIndex(2);">用户</div>
+
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript">
+apiready = function() {
+
+    // $api.fixStatusBar(
+    //   $api.byId('header');
+    //
+    // );
+    var header = $api.dom('header'); // 获取 header 标签元素
+    // 沉浸式处理
+    $api.fixStatusBar(header);
+    //
+    var nav = $api.byId('nav');
+
+    var headerH = $api.offset(header).h;
+    var navH = $api.offset(nav).h;
+
+    menus = $api.domAll(nav, '.menu');
+
+
+
+    // var frames = [];
+    // // alert(menus.length);
+    // for (var i = 0; i < menus.length; i++) {
+    //     frames.push({
+    //         name: 'search_frame_' + i,
+    //         url: './search_frame.html'
+    //     });
+    // }
+
+
+    api.openFrameGroup ({
+        name: 'group1',
+        background: '#fff',
+        scrollEnabled: true,
+        rect: {
+             x: 0,
+             y: headerH+navH,
+             w: 'auto',
+             h: 'auto'
+        },
+        index: 0,
+        frames: [{
+            name: 'search1',
+            url: 'search_frame1.html'
+
+        },{
+            name: 'search2',
+            url: 'search_frame2.html'
+
+        },{
+            name: 'search3',
+            url: 'search_frame3.html'
+
+        }]
+    }, function(ret, err){
+        fnSetNavMenuSelected(ret.index);
+    });
+
+
+
+
+    // api.openFrameGroup({
+    //     name: 'searchFrameGroup',
+    //     scrollEnabled: true,
+    //     rect: {
+    //         x: 0,
+    //         y: headerH+navH,
+    //         w: 'auto',
+    //         h:'auto'
+    //     },
+    //     index: 0,
+    //     frames: frames
+    // }, function(ret, err) {
+    //     fnSetNavMenuSelected(ret.index);
+    // });
+
+
+  };
+
+  function fnSetNavMenuSelected(index_) {
+      for (var i = 0; i < menus.length; i++) {
+          if (index_ == i) {
+              $api.addCls(menus[i], 'selected');
+          } else {
+              $api.removeCls(menus[i], 'selected');
+          }
+      }
+  }
+
+
+  var menus;
+  //点击切换
+  function fnSetNavMenuIndex(index_) {
+      fnSetNavMenuSelected(index_);
+      api.setFrameGroupIndex({
+          name: 'searchFrameGroup',
+          index: index_,
+          scroll: true
+      });
+  }
+</script>
+
+</html>
