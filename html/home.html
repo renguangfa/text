@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+    <title>title</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <link rel="stylesheet" type="text/css" href="../css/aui.css" />
+    <style>
+        html,
+        body {
+            height: 100%;
+            background-color: #eef0f8;
+        }
+
+        .wrap {
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-flex-flow: column;
+        }
+
+        header {
+            height: 74px;
+            width: 100%;
+            text-align: center;
+            background-color: #fff;
+            color: #fff;
+            line-height: 44px;
+            font-size: 20px;
+            border-bottom: 1px solid #ececec;
+        }
+
+        header .list {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-orient: horizontal;
+            -webkit-flex-flow: row;
+            flex-flow: row;
+            position: relative;
+            width: 100%;
+            height: 40px;
+            background-color: #fff;
+            /*border-bottom: 1px solid #ececec;*/
+        }
+
+        .menu {
+            -webkit-box-flex: 1;
+            -webkit-flex: 1;
+            flex: 1;
+            width: 100%;
+            height: 40px;
+            line-height: 40px;
+            font-size: 14px;
+            color: #404041;
+            text-align: center;
+        }
+
+        header .list .search {
+            width: 40px;
+        }
+
+        header .list img {
+            position: absolute;
+            top: 20%;
+            left: 4%;
+            width: 23px;
+        }
+
+        .selected {
+            font-size: 14px;
+            color: #00a7ff;
+            font-weight: bolder;
+        }
+    </style>
+</head>
+
+<body class="wrap">
+    <header id="header">
+        <div class="list">
+            <div class="search" tapmode onclick="fnOpenSearch()"><img src="../image/search.png" alt=""></div>
+            <div class="menu" tapmode="selected" onclick="fnSetNavMenuIndex(0);">关注</div>
+            <div class="menu selected" tapmode="selected" onclick="fnSetNavMenuIndex(1);">推荐</div>
+            <div class="menu" tapmode="selected" onclick="fnSetNavMenuIndex(2);">视频</div>
+            <div class="menu" tapmode="selected" onclick="fnSetNavMenuIndex(3);">图文</div>
+
+        </div>
+    </header>
+dfsdfsdfsd
+
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/aui-tab.js"></script>
+
+<script type="text/javascript">
+    apiready = function() {
+        var header = $api.dom('header'); // 获取 header 标签元素
+        var footerH = api.pageParam;
+
+        $api.fixStatusBar(header);
+        //获取头部的
+        var headerH = $api.offset(header).h;
+        // var footerH = $api.offset(footer).h;
+        menus = $api.domAll(header, '.menu');
+        var winH = api.winHeight
+        var mainH = Number(winH) - Number(headerH) - Number(footerH.height)
+        // alert(mainH)
+        var frames = [];
+        // alert(menus.length);
+        // for (var i = 0; i < menus.length; i++) {
+        //     frames.push({
+        //         name: 'main_frame_' + i,
+        //         url: './main_frame.html'
+        //     });
+        // }
+
+
+
+        api.openFrameGroup({
+            name: 'mainFrameGroup',
+            background: '#000',
+            scrollEnabled: true,
+            rect: {
+                x: 0,
+                y: headerH,
+                w: 'auto',
+                h: mainH
+            },
+            index: 1,
+            frames: [{
+                name: 'main_frame1',
+                url: './main_frame1.html',
+                bgColor: '#fff'
+            }, {
+                name: 'frame2',
+                url: './main_frame2.html',
+                bgColor: '#fff'
+            }, {
+                name: 'frame3',
+                url: './main_frame3.html',
+                bgColor: '#fff'
+            }, {
+                name: 'frame4',
+                url: './main_frame4.html',
+                bgColor: '#fff'
+            }]
+        }, function(ret, err) {
+            fnSetNavMenuSelected(ret.index);
+            // if( ret ){
+            //      alert( JSON.stringify( ret ) );
+            // }else{
+            //      alert( JSON.stringify( err ) );
+            // }
+        });
+
+
+
+        // api.openFrameGroup({
+        //     name: 'mainFrameGroup',
+        //     scrollEnabled: true,
+        //     rect: {
+        //         x: 0,
+        //         y: headerH,
+        //         w: 'auto',
+        //         h: mainH,
+        //         // h: 'auto',
+        //
+        //         // marginBottom: footerH,
+        //     },
+        //     index: 0,
+        //     frames: frames
+        // }, function(ret, err) {
+        //     fnSetNavMenuSelected(ret.index);
+        // });
+    };
+
+    //点击打开搜索页面
+    function fnOpenSearch() {
+        api.openWin({
+            name: 'search',
+            url: './search.html',
+            pageParam: {
+                name: 'test'
+            }
+        });
+
+    }
+
+
+
+    // 状态栏css样式选中
+    function fnSetNavMenuSelected(index_) {
+        for (var i = 0; i < menus.length; i++) {
+            if (index_ == i) {
+                $api.addCls(menus[i], 'selected');
+            } else {
+                $api.removeCls(menus[i], 'selected');
+            }
+        }
+    }
+
+    var menus;
+    //点击切换
+    function fnSetNavMenuIndex(index_) {
+        fnSetNavMenuSelected(index_);
+        api.setFrameGroupIndex({
+            name: 'mainFrameGroup',
+            index: index_,
+            scroll: true
+        });
+    }
+</script>
+
+</html>
