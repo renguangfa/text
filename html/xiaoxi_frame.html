@@ -1,167 +1,171 @@
 <!DOCTYPE HTML>
 <html>
+
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
     <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
-    <title>AUI快速完成布局</title>
+    <title>消息frame_话题</title>
     <link rel="stylesheet" type="text/css" href="../css/aui.css" />
     <style type="text/css">
-        .aui-list-item.wechat-top {
-            background-color: #f3f3f7;
+        html,
+        body {
+            height: 100%;
+            background-color: #fff;
         }
-        .aui-list .wechat-avatar {
-            width:3rem;
+
+        .xiaoxi_ul {
+            list-style: none;
+            position: relative;
+            margin-top: 5px;
         }
-        .wechat-avatar .aui-row-padded {
-            background-color: #dddee0;
-            padding: 0.1rem;
-            border-radius: 0.2rem;
-            margin-left: -0.05rem;
-            margin-right: -0.05rem;
+
+        .xiaoxi_ul li {
+            /*background-color: red;*/
+            width: 100%;
+            height: 75px;
+            color: #aeaeae;
+            /*border-bottom: 1px solid #eaeaea;*/
         }
-        .wechat-avatar .aui-row-padded [class*=aui-col-xs-] {
-            padding: 0.05rem;
+
+        .xiaoxi_ul .xiaoxi_tou_img {
+            margin-top: 2px;
+            width: 40px;
+            height: 40px;
         }
-        .wechat-avatar,
-        .wechat-avatar > img {
-            border-radius:0.2rem;
+
+        .xiaoxi_ul li {
+            padding: 10px;
+            line-height: 50px;
+        }
+
+        .xiaoxi_ul .xiaoxi_img {
+            background-color: #fbfbfb;
+            position: absolute;
+            left: 83%;
+            width: 45px;
+            height: 45px;
+            opacity: 0.4;
+            color: #eaeaea;
+            font-size: 12px;
+        }
+
+        .ren {
+            /*background-color: red;*/
+            background-color: #ece7e7;
+            border-radius: 9px;
+            position: relative;
+            left: 46%;
+            width: 2.5rem;
+            height: 50px;
+            opacity: 0.5;
+            color: #000;
+            font-size: 11px;
+            text-align: center;
+        }
+
+        .wenzi {
+            overflow: hidden;
+            /*溢出隐藏*/
+            text-overflow: ellipsis;
+            /*以省略号...显示*/
+            white-space: nowrap;
+            /*强制不换行*/
         }
     </style>
 </head>
+
 <body>
-    <div class="aui-content aui-margin-b-15">
-        <ul class="aui-list aui-media-list">
-        
-            <li class="aui-list-item aui-list-item-middle wechat-top">
-                <div class="aui-media-list-item-inner">
-                    <div class="aui-list-item-media wechat-avatar">
-                        <div class="aui-badge">9</div>
-                        <div class="aui-row-padded">
-                            <div class="aui-col-xs-4">
-                                <img src="../image/demo1.png" />
-                            </div>
-                            <div class="aui-col-xs-4">
-                                <img src="../image/demo2.png" />
-                            </div>
-                            <div class="aui-col-xs-4">
-                                <img src="../image/demo3.png" />
-                            </div>
-                            <div class="aui-col-xs-4">
-                                <img src="../image/demo4.png" />
-                            </div>
-                            <div class="aui-col-xs-4">
-                                <img src="../image/demo5.png" />
-                            </div>
-                            <div class="aui-col-xs-4">
-                                <img src="../image/demo6.png" />
-                            </div>
-                            <div class="aui-col-xs-4">
-                                <img src="../image/demo1.png" />
-                            </div>
-                            <div class="aui-col-xs-4">
-                                <img src="../image/demo3.png" />
-                            </div>
-                            <div class="aui-col-xs-4">
-                                <img src="../image/demo5.png" />
-                            </div>
-                        </div>
-                    </div>
-                    <div class="aui-list-item-inner">
-                        <div class="aui-list-item-text">
-                            <div class="aui-list-item-title">AUI微信开发交流群</div>
-                            <div class="aui-list-item-right">08:00</div>
-                        </div>
-                        <div class="aui-list-item-text aui-font-size-12">
-                            流浪男:欢迎使用AUI 2.0
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <li class="aui-list-item aui-list-item-middle wechat-top">
-                <div class="aui-media-list-item-inner">
-                    <div class="aui-list-item-media wechat-avatar">
-                        <div class="aui-row-padded">
-                            <div class="aui-col-xs-6">
-                                <img src="../image/demo2.png" />
-                            </div>
-                            <div class="aui-col-xs-6">
-                                <img src="../image/demo3.png" />
-                            </div>
-                            <div class="aui-col-xs-6">
-                                <img src="../image/demo1.png" />
-                            </div>
-                            <div class="aui-col-xs-6">
-                                <img src="../image/demo5.png" />
-                            </div>
+
+    <div class="aui-card-list">
+
+        <div class="aui-card-list-content">
+            <ul class="xiaoxi_ul">
+                <li class="">
+
+                    <div class="aui-media-list-item-inner">
+                        <div class="div_img" style="width: 3rem;">
+                            <img src="../image/nvtou1.jpg" class="aui-img-round xiaoxi_tou_img">
                         </div>
 
-                    </div>
-                    <div class="aui-list-item-inner">
-                        <div class="aui-list-item-text">
-                            <div class="aui-list-item-title">AUI 2.0讨论组</div>
-                            <div class="aui-list-item-right">08:00</div>
+                        <div style="height:50px; width:93px;" class="aui-list-item-inner">
+                            水晶雨655034
                         </div>
-                        <div class="aui-list-item-text aui-font-size-12">
-                            AUI:官方网站 www.auicss.com
+                        <div class="ren wenzi" style="width: 2.5rem;">
+                            恭喜你完成了这么伟大
                         </div>
                     </div>
-                </div>
-            </li>
-            <li class="aui-list-item aui-list-item-middle">
-                <div class="aui-media-list-item-inner">
-                    <div class="aui-list-item-media wechat-avatar">
-                        <div class="aui-badge">9</div>
-                        <img src="../image/demo5.png" />
-                    </div>
-                    <div class="aui-list-item-inner">
-                        <div class="aui-list-item-text">
-                            <div class="aui-list-item-title">流浪男</div>
-                            <div class="aui-list-item-right">星期一</div>
+                </li>
+                <li class="">
+
+                    <div class="aui-media-list-item-inner">
+                        <div class="div_img" style="width: 3rem;">
+                            <img src="../image/nvtou1.jpg" class="aui-img-round xiaoxi_tou_img">
                         </div>
-                        <div class="aui-list-item-text aui-font-size-12">
-                            Hello AUI 2.0!
+
+                        <div style="height:50px; width:93px;" class="aui-list-item-inner wenzi">
+                            naguo
+                        </div>
+                        <div class="ren wenzi" style="width: 2.5rem;">
+                            <img src="../image/nvtou6.jpg">
                         </div>
                     </div>
-                </div>
-            </li>
-            <li class="aui-list-item aui-list-item-middle">
-                <div class="aui-media-list-item-inner">
-                    <div class="aui-list-item-media wechat-avatar">
-                        <img src="../image/demo1.png" />
-                    </div>
-                    <div class="aui-list-item-inner">
-                        <div class="aui-list-item-text">
-                            <div class="aui-list-item-title">张三</div>
-                            <div class="aui-list-item-right">1天前</div>
+                </li>
+                <li class="">
+
+                    <div class="aui-media-list-item-inner">
+                        <div class="div_img" style="width: 3rem;">
+                            <img src="../image/nvtou2.jpg" class="aui-img-round xiaoxi_tou_img">
                         </div>
-                        <div class="aui-list-item-text aui-font-size-12">
-                            Hello AUI 2.0!
+
+                        <div style="height:50px;width:93px;" class="aui-list-item-inner">
+                            你也想起舞吗
                         </div>
-                    </div>
-                </div>
-            </li>
-            <li class="aui-list-item aui-list-item-middle">
-                <div class="aui-media-list-item-inner">
-                    <div class="aui-list-item-media wechat-avatar">
-                        <div class="aui-dot"></div>
-                        <img src="../image/demo4.png" />
-                    </div>
-                    <div class="aui-list-item-inner">
-                        <div class="aui-list-item-text">
-                            <div class="aui-list-item-title">李四</div>
-                            <div class="aui-list-item-right">星期一</div>
-                        </div>
-                        <div class="aui-list-item-text aui-font-size-12">
-                            Hello AUI 2.0!
+                        <div class="ren wenzi" style="width: 2.5rem;">
+                            <img src="../image/nvtou3.jpg">
                         </div>
                     </div>
-                </div>
-            </li>
-        </ul>
+                </li>
+                <li class="">
+
+                    <div class="aui-media-list-item-inner">
+                        <div class="div_img" style="width: 3rem;">
+                            <img src="../image/nvtou4.jpg" class="aui-img-round xiaoxi_tou_img">
+                        </div>
+
+                        <div style="height:50px;width:93px;" class="aui-list-item-inner">
+                            斑爷
+                        </div>
+                        <div class="ren wenzi" style="width: 2.5rem;">
+                            <img src="../image/nvtou5.jpg">
+                        </div>
+                    </div>
+                </li>
+                <li class="">
+
+                    <div class="aui-media-list-item-inner">
+                        <div class="div_img" style="width: 3rem;">
+                            <img src="../image/nvtou6.jpg" class="aui-img-round xiaoxi_tou_img">
+                        </div>
+
+                        <div style="height:50px;width:93px;" class="aui-list-item-inner">
+                            房东的猫
+                        </div>
+                        <div class="ren wenzi" style="width: 2.5rem;">
+                            种子批发
+                        </div>
+                    </div>
+                </li>
+
+
+
+
+            </ul>
+        </div>
     </div>
 </body>
-<script type="text/javascript" src="../script/api.js" ></script>
+<script type="text/javascript" src="../script/api.js"></script>
 <script type="text/javascript">
 </script>
+
 </html>
