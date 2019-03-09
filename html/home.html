@@ -87,8 +87,6 @@
 
         </div>
     </header>
-dfsdfsdfsd
-
 </body>
 <script type="text/javascript" src="../script/api.js"></script>
 <script type="text/javascript" src="../script/aui-tab.js"></script>
@@ -106,14 +104,7 @@ dfsdfsdfsd
         var winH = api.winHeight
         var mainH = Number(winH) - Number(headerH) - Number(footerH.height)
         // alert(mainH)
-        var frames = [];
-        // alert(menus.length);
-        // for (var i = 0; i < menus.length; i++) {
-        //     frames.push({
-        //         name: 'main_frame_' + i,
-        //         url: './main_frame.html'
-        //     });
-        // }
+
 
 
 
@@ -129,50 +120,27 @@ dfsdfsdfsd
             },
             index: 1,
             frames: [{
-                name: 'main_frame1',
-                url: './main_frame1.html',
+                name: 'home_frame1',
+                url: './home_frame1.html',
                 bgColor: '#fff'
             }, {
-                name: 'frame2',
-                url: './main_frame2.html',
+                name: 'home2',
+                url: './home_frame2.html',
                 bgColor: '#fff'
             }, {
-                name: 'frame3',
-                url: './main_frame3.html',
+                name: 'home3',
+                url: './home_frame3.html',
                 bgColor: '#fff'
             }, {
-                name: 'frame4',
-                url: './main_frame4.html',
+                name: 'home4',
+                url: './home_frame4.html',
                 bgColor: '#fff'
             }]
         }, function(ret, err) {
             fnSetNavMenuSelected(ret.index);
-            // if( ret ){
-            //      alert( JSON.stringify( ret ) );
-            // }else{
-            //      alert( JSON.stringify( err ) );
-            // }
         });
 
 
-
-        // api.openFrameGroup({
-        //     name: 'mainFrameGroup',
-        //     scrollEnabled: true,
-        //     rect: {
-        //         x: 0,
-        //         y: headerH,
-        //         w: 'auto',
-        //         h: mainH,
-        //         // h: 'auto',
-        //
-        //         // marginBottom: footerH,
-        //     },
-        //     index: 0,
-        //     frames: frames
-        // }, function(ret, err) {
-        //     fnSetNavMenuSelected(ret.index);
-        // });
     };
 
     //点击打开搜索页面

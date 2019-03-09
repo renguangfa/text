@@ -6,7 +6,7 @@
     <author email="developer@apicloud.com" href="http://www.apicloud.com">
         Developer
     </author>
-    <content src="index.html" />
+    <content src="./index.html" />
     <access origin="*" />
     <preference name="pageBounce" value="false"/>
 	<preference name="appBackground" value="rgba(0,0,0,0.0)"/>
@@ -19,7 +19,8 @@
 	<preference name="autoUpdate" value="true" />
 	<preference name="smartUpdate" value="false" />
 	<preference name="debug" value="true"/>
-	<preference name="statusBarAppearance" value="true"/>
+	<preference name="statusBarAppearance" value="true"/>
+
 	<permission name="readPhoneState" />
 	<permission name="camera" />
 	<permission name="record" />
