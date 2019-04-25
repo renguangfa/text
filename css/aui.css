@@ -1079,7 +1079,11 @@ input[type="search"]::-webkit-search-cancel-button {
         background-size: 100% 1px;
 		background-repeat: no-repeat;
 		background-position: top;
+<<<<<<< HEAD
         /*background-image: linear-gradient(0,#dddddd,#dddddd 50%,transparent 50%);*/
+=======
+        background-image: linear-gradient(0,#dddddd,#dddddd 50%,transparent 50%);
+>>>>>>> eeb4f268d347d6fe60c68cab8e1aed8d10957459
 	}
 	.aui-list .aui-list-item {
 		border: none;
@@ -2706,4 +2710,8 @@ input[type="search"]::-webkit-search-cancel-button {
 .aui-icon-hide:before { content: "\e624"; }
 .aui-icon-pencil:before { content: "\e615"; }
 .aui-icon-flag:before { content: "\e6f1"; }
+<<<<<<< HEAD
 .aui-icon-cert:before { content: "\e704"; }
+=======
+.aui-icon-cert:before { content: "\e704"; }
+>>>>>>> eeb4f268d347d6fe60c68cab8e1aed8d10957459

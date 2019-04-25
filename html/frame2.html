@@ -1,0 +1,180 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, initial-scale=1.0, width=device-width" />
+    <meta name="format-detection" content="telephone=no, email=no, date=no, address=no">
+    <title>消息</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <link rel="stylesheet" type="text/css" href="../css/aui.css" />
+    <style>
+    html,
+    body {
+        height: 100%;
+        /*background-color: #eef0f8;*/
+        background-color: #fff;
+    }
+
+    .wrap {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-flex-flow: column;
+    }
+    header {
+        height: px;
+        width: 100%;
+        background-color: #fff;
+    }
+  .search-border {
+    background-color: #efefef;
+  }
+  #search {
+
+    position: relative;
+    width: 97%;
+    height: 54px;
+    background-color: #fff;
+
+  }
+  .aui-searchbar-input {
+    height: 36px;
+    border-radius: 50px ;
+  }
+  .aui-searchbar-input input {
+    height: 36px;
+
+  }
+  .search-close {
+
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #efefef;
+  }
+
+.nav {
+  height: 41px;
+  width: 100%;
+  text-align: center;
+  background-color: #fff;
+  color: #fff;
+  line-height: 44px;
+  font-size: 20px;
+}
+  .list {
+
+
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-flex-flow: row;
+    flex-flow: row;
+    position: relative;
+    width: 95%;
+    height: 40px;
+    background-color: #fff;
+    /*border-bottom: 1px solid #ececec;*/
+  }
+  .list .menu {
+      -webkit-box-flex: 1;
+      -webkit-flex: 1;
+      flex: 1;
+      width: 100%;
+      height: 40px;
+      line-height: 40px;
+      font-size: 14px;
+      color: #404041;
+      text-align: center;
+  }
+  .list .selected {
+      font-size: 14px;
+      color: #00a7ff;
+      font-weight: bolder;
+  }
+    </style>
+</head>
+
+<body class="wrap">
+<header>
+  <div class="nav" id="nav">
+      <div class="list">
+        <div class="menu selected" tapmode="selected" onclick="fnSetNavMenuIndex(0);">提醒</div>
+        <div class="menu" tapmode="selected" onclick="fnSetNavMenuIndex(1);">私信</div>
+
+      </div>
+  </div>
+</header>
+
+
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript">
+apiready = function() {
+
+    // $api.fixStatusBar(
+    //   $api.byId('header');
+    //
+    // );
+    var header = $api.dom('header'); // 获取 header 标签元素
+    // 沉浸式处理
+    $api.fixStatusBar(header);
+    //
+    var nav = $api.byId('nav');
+    var footerH = api.pageParam;
+    var headerH = $api.offset(header).h;
+    var navH = $api.offset(nav).h;
+
+    menus = $api.domAll(header, '.menu');
+    var frames = [];
+    // alert(menus.length);
+    for (var i = 0; i < menus.length; i++) {
+        frames.push({
+            name: 'search_frame_' + i,
+            url: './search_frame.html'
+        });
+    }
+
+    api.openFrameGroup({
+        name: 'searchFrameGroup',
+        scrollEnabled: true,
+        rect: {
+            x: 0,
+            y: headerH+navH,
+            w: 'auto',
+            h:footerH
+        },
+        index: 0,
+        frames: frames
+    }, function(ret, err) {
+        fnSetNavMenuSelected(ret.index);
+    });
+
+
+  };
+
+  function fnSetNavMenuSelected(index_) {
+      for (var i = 0; i < menus.length; i++) {
+          if (index_ == i) {
+              $api.addCls(menus[i], 'selected');
+          } else {
+              $api.removeCls(menus[i], 'selected');
+          }
+      }
+  }
+
+
+  var menus;
+  //点击切换
+  function fnSetNavMenuIndex(index_) {
+      fnSetNavMenuSelected(index_);
+      api.setFrameGroupIndex({
+          name: 'searchFrameGroup',
+          index: index_,
+          scroll: true
+      });
+  }
+</script>
+
+</html>
