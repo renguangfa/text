@@ -73,8 +73,8 @@
     <header id="aui-header">
         <div class="nav" id="nav">
             <div class="list">
-                <div style="text-align:right;margin-right:20px;" class="menu selected" tapmode="selected" onclick="fnSetNavMenuIndex(0);">话题</div>
-                <div style="text-align:left;margin-left:20px;" class="menu" tapmode="selected" onclick="fnSetNavMenuIndex(1);">帖子</div>
+                <div style="text-align:right;margin-right:20px;" class="menu selected" tapmode="selected" onclick="fnSetNavMenuIndex(0);">消息</div>
+                <div style="text-align:left;margin-left:20px;" class="menu" tapmode="selected" onclick="fnSetNavMenuIndex(1);">私信</div>
 
             </div>
         </div>
@@ -85,11 +85,6 @@
 <script type="text/javascript">
     apiready = function() {
 
-        // 状态栏颜色状态
-        api.setStatusBarStyle({
-            style: 'dark',
-            color: 'transparent'
-        });
         var header = $api.dom('header'); // 获取 header 标签元素
         var footerH = api.pageParam;
 

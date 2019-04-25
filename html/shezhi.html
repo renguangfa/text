@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+    <title>设置</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <link rel="stylesheet" type="text/css" href="../css/aui.css" />
+    <style>
+        html,
+        body {
+            height: 100%;
+            background-color: #eef0f8;
+            margin: 0;
+        }
+
+        .wrap {
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-flex-flow: column;
+        }
+
+        header {
+            height: 74px;
+            width: 100%;
+            text-align: center;
+            background-color: #fff;
+            color: #fff;
+            line-height: 44px;
+            font-size: 20px;
+        }
+
+        header .list {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-orient: horizontal;
+            -webkit-flex-flow: row;
+            flex-flow: row;
+            position: relative;
+            width: 100%;
+            height: 40px;
+            background-color: #fff;
+            /*border-bottom: 1px solid #ececec;*/
+        }
+
+        .menu {
+            -webkit-box-flex: 1;
+            -webkit-flex: 1;
+            flex: 1;
+            width: 100%;
+            height: 40px;
+            line-height: 40px;
+            font-size: 14px;
+            color: #404041;
+            text-align: center;
+        }
+
+        header .list .search {
+            width: 40px;
+        }
+
+        header .list img {
+            position: absolute;
+            top: 20%;
+            left: 2%;
+            width: 23px;
+        }
+        li {
+          height: 46px;
+        }
+        .biaoti {
+            width: 100%;
+            height: 100%;
+            margin-left: -40px;
+            text-align: center;
+            line-height: 44px;
+            font-size: 18px;
+        }
+
+        .aui-list-item-arrow,
+        .aui-list-arrow {
+            font-size: 14px;
+            color: #000;
+        }
+
+        .aui-list-in li {
+            height: 50px;
+        }
+
+        .aui-iconfont img {
+            width: 20px;
+        }
+
+        .liebiao-yejian {
+            margin-bottom: 15px;
+        }
+        .tuichu {
+          width: 100%;
+          margin-top: 10px;
+          height: 50px;
+          margin-bottom: 20px;
+          background-color: #fff;
+        }
+    </style>
+</head>
+
+<body class="wrap">
+
+    <header id="header">
+        <div class="list">
+            <div class="search" tapmode onclick="api.closeWin()"><img src="../image/left.png" alt=""></div>
+            <div class="biaoti">
+                <h3 style="color: #000;">设置</h3>
+            </div>
+        </div>
+    </header>
+
+
+    <!-- 账号与安全 -->
+    <div style="margin-top:10px;" class="zhanghao">
+        <ul class="aui-list aui-list-in">
+            <li class="aui-list-item" style="padding-left:20px;background-position: 1.15rem bottom;" tapmode onclick="">
+                <div class="aui-list-item-inner aui-list-item-arrow">
+                    账号与安全
+                </div>
+            </li>
+        </ul>
+    </div>
+    <!-- 内容自动刷新 -->
+    <div style="margin-top:10px;" class="neirong">
+        <ul class="aui-list aui-list-in">
+            <li class="aui-list-item" style="padding-left:20px;background-position: 1.15rem bottom;">
+                <div class="aui-list-item-inner aui-list-arrow">
+                    内容自动刷新
+                    <div class="aui-list-item-right">
+                        <input type="checkbox" class="aui-switch" checked>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <!-- 推送设置到内测版本优先体验 -->
+    <div style="margin-top:10px;" class="tuisong">
+        <ul class="aui-list aui-list-in">
+            <li class="aui-list-item" style="padding-left:20px;background-position: 1.15rem bottom;" tapmode onclick="">
+                <div class="aui-list-item-inner aui-list-item-arrow">
+                    推送设置
+                </div>
+            </li>
+            <li class="aui-list-item" style="padding-left:20px;background-position: 1.15rem bottom;" tapmode onclick="">
+                <div class="aui-list-item-inner aui-list-item-arrow">
+                    检查更新
+                    <h6 style="font-size:12px;color:#b8b8b8;">4.9.1</h6>
+                </div>
+            </li>
+            <li class="aui-list-item" style="height:75px;padding-left:20px;background-position: 1.15rem bottom;">
+                <div class="aui-list-item-inner aui-list-arrow">
+                    <div class="twoline">
+                        <span>内测版本优先体验</span>
+                        <h6 style="font-size:12px;color:#aaadaf; margin-top:6px;">开启后，可以优先体验最新内测版本</h6>
+                    </div>
+
+                    <div class="aui-list-item-right">
+                        <input type="checkbox" class="aui-switch">
+                    </div>
+
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <!-- 推荐中屏蔽的话题 -->
+    <div style="margin-top:10px;" class="huati">
+        <ul class="aui-list aui-list-in">
+            <li class="aui-list-item" style="padding-left:20px;background-position: 1.15rem bottom;" tapmode onclick="">
+                <div class="aui-list-item-inner aui-list-item-arrow">
+                    推荐中屏蔽的话题
+                      <h6 style="font-size:12px;color:#b8b8b8;">0</h6>
+                </div>
+            </li>
+            <li class="aui-list-item" style="padding-left:20px;background-position: 1.15rem bottom;" tapmode onclick="">
+                <div class="aui-list-item-inner aui-list-item-arrow">
+                    我屏蔽的用户
+                    <h6 style="font-size:12px;color:#b8b8b8;">1</h6>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <!-- 清除缓存、关于最右、原创入住、启用软编码 -->
+    <div style="margin-top:10px;" class="qingchu">
+        <ul class="aui-list aui-list-in">
+            <li class="aui-list-item" style="padding-left:20px;background-position: 1.15rem bottom;" tapmode onclick="">
+                <div class="aui-list-item-inner aui-list-arrow">
+                    清除缓存
+                      <h6 style="font-size:12px;color:#b8b8b8;">164MB</h6>
+                </div>
+            </li>
+            <li class="aui-list-item" style="padding-left:20px;background-position: 1.15rem bottom;" tapmode onclick="">
+                <div class="aui-list-item-inner aui-list-item-arrow">
+                    关于最右
+                </div>
+            </li>
+            <li class="aui-list-item" style="padding-left:20px;background-position: 1.15rem bottom;" tapmode onclick="">
+                <div class="aui-list-item-inner aui-list-item-arrow">
+                    原创入住
+                </div>
+            </li>
+            <li class="aui-list-item" style="padding-left:20px;background-position: 1.15rem bottom;">
+                <div class="aui-list-item-inner aui-list-arrow">
+                    启用软编码
+                    <div class="aui-list-item-right">
+                        <input type="checkbox" class="aui-switch">
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+  <!-- 退出当前账号 -->
+  <div class="tuichu">
+        <h3 style="color: #09aeff; line-height:50px;text-align:center;">退出当前账号</h3>
+  </div>
+
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript">
+    apiready = function() {
+        var header = $api.byId('header');
+        $api.fixStatusBar(header);
+    };
+</script>
+
+</html>

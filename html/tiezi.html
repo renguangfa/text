@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+  <html>
+  <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+      <title>帖子详情</title>
+      <link rel="stylesheet" type="text/css" href="../css/api.css"/>
+      <link rel="stylesheet" type="text/css" href="../css/aui.css"/>
+      <style>
+      html,
+      body {
+          height: 100%;
+          background-color: #eef0f8;
+          margin: 0;
+      }
+
+      .wrap {
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          -webkit-flex-flow: column;
+      }
+
+      header {
+          height: 74px;
+          width: 100%;
+          text-align: center;
+          background-color: #fff;
+          color: #fff;
+          line-height: 44px;
+          font-size: 20px;
+          border-bottom: 1px solid #ececec;
+      }
+
+      header .list {
+          display: -webkit-box;
+          display: -webkit-flex;
+          display: flex;
+          -webkit-box-orient: horizontal;
+          -webkit-flex-flow: row;
+          flex-flow: row;
+          position: relative;
+          width: 100%;
+          height: 40px;
+          background-color: #fff;
+
+      }
+
+      .menu {
+          -webkit-box-flex: 1;
+          -webkit-flex: 1;
+          flex: 1;
+          width: 100%;
+          height: 40px;
+          line-height: 40px;
+          font-size: 14px;
+          color: #404041;
+          text-align: center;
+      }
+
+      header .list .search {
+          width: 40px;
+      }
+
+      header .list .left-img {
+          position: absolute;
+          top: 20%;
+          left: 2%;
+          width: 23px;
+      }
+      .biaoti {
+          width: 100%;
+          height: 100%;
+          font-size: 18px;
+          /*margin-left: -40px;*/
+          text-align: center;
+          line-height: 44px;
+      }
+      .right-more {
+        /*background-color: red;*/
+      }
+      .right-more img {
+        position: absolute;
+        top: 20%;
+        right:  2%;
+        width: 23px;
+      }
+      footer {
+        background-color: red;
+      }
+      input {
+        caret-color:#30a0db;
+      }
+      input::-webkit-input-placeholder {
+        color: #b9b9b9;
+      }
+      </style>
+  </head>
+  <body class="wrap">
+    <header id="header">
+        <div class="list">
+            <div class="search" tapmode onclick="api.closeWin()"><img class="left-img" src="../image/left.png" alt=""></div>
+            <div class="biaoti">
+                <h3 style="color: #262627;">帖子详情</h3>
+            </div>
+              <div  class="search right-more" tapmode onclick=""><img class="right-img" src="../image/more.png" alt=""></div>
+        </div>
+    </header>
+  <footer id="footer" class="aui-bar aui-bar-tab">
+            <div class="aui-bar-tab-item" tapmode style="width: 2.2rem;">
+              <img style="width:25px;margin-left:10px;" src="../image/yuyin.jpg" alt="">
+            </div>
+            <div class="aui-bar-tab-item" tapmode style="width: auto;">
+              <input style="border:1px solid #cbcbcb;height: 35px; border-radius:20px; color:b9b9b9;padding-left:10px; " class="search-input aui-font-size-14" placeholder="写个评论吧"   type="text">
+            </div>
+            <div class="aui-bar-tab-item" tapmode style="width: 2.2rem;">
+                <img style="width:35px;margin-left:5px;" src="../image/tupian.png" alt="">
+            </div>
+            <div class="aui-bar-tab-item" tapmode style="width: 2.2rem;">
+              <img style="width:35px;margin-left:5px;" src="../image/fenxiang.png" alt="">
+            </div>
+        </footer>
+  </body>
+  <script type="text/javascript" src="../script/api.js"></script>
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+  <!-- js文件 -->
+  <script type="text/javascript">
+
+  </script>
+  <script type="text/javascript">
+  apiready = function() {
+      var header = $api.byId('header');
+      var footer = $api.byId('footer');
+      $api.fixStatusBar(header);
+
+      var headerH = $api.offset(header).h;
+      var footerH = $api.offset(footer).h;
+      var winH = api.winHeight;
+      var mainH = Number(winH) - Number(headerH) - Number(footerH.height);
+      // frame组
+      api.openFrame({
+          name: 'tiezi_frame',
+          url: './tiezi_frame.html',
+          rect: {
+              x: 0,
+              y: headerH,
+              w: 'auto',
+              h: 'auto',
+              marginBottom:50,
+          },
+          pageParam: {
+              name: 'test'
+          }
+
+      });
+
+  };
+  </script>
+  </html>

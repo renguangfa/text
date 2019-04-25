@@ -1,70 +1,491 @@
 <!DOCTYPE html>
-  <html>
-  <head>
-      <meta charset="utf-8">
-      <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
-      <title>title</title>
-      <link rel="stylesheet" type="text/css" href="../css/api.css"/>
-      <link rel="stylesheet" type="text/css" href="../css/aui.css"/>
-      <style>
-      html,
-      body {
-          height: 100%;
-          background-color: #eef0f8;
-          margin: 0;
+<html>
 
-      }
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+    <title>title</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <link rel="stylesheet" type="text/css" href="../css/aui.css" />
+    <style>
+        html,
+        body {
+            height: 100%;
+            background-color: #eef0f8;
+            margin: 0;
+        }
 
-      .wrap {
-          display: -webkit-box;
-          -webkit-box-orient: vertical;
-          -webkit-flex-flow: column;
-      }
-      .header {
-        background-image: url(../image/img4.jpg);
-        width: 100%;
-        height: 200px;
-      }
-.header .shezhi {
-  width: 100%;
-  height: 40px;
-  /*background-color: red;*/
+        .wrap {
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-flex-flow: column;
+        }
 
-}
-.header .shezhi .right{
-  width: 20px;
-  height: 20px;
-  background-color: #ccc;
-  float: right;
-  position: fixed;
-  left: 90%;
-  margin-top: 10px;
-  text-align: center;
-  line-height: 20px;
-  margin-right: 20px;
-  opacity: 0.5;
-  border-radius: 5px;
-}
-      </style>
-  </head>
-  <body class="wrap">
+        .header {
+            background-image: url(../image/5c89c48375ac2.jpg);
+            width: 100%;
+            height: 250px;
+        }
+
+        .header .shezhi {
+            width: 100%;
+            height: 40px;
+
+        }
+
+        .header .shezhi .right {
+            color: #fff;
+            width: 20px;
+            height: 20px;
+            /*background-color: #ccc;*/
+            float: right;
+            position: fixed;
+            left: 93%;
+            margin-top: 10px;
+            text-align: center;
+            line-height: 20px;
+            margin-right: 10px;
+            z-index: 100;
+            border-radius: 5px;
+            background-color: rgba(70, 70, 70, 0.5);
+        }
+
+        .scorl {
+            width: 100%;
+            height: 60px;
+            margin-top: 15px;
+            display: block;
+            /*background-color: red;*/
+            overflow: hidden;
+        }
+
+        .tou-img {
+            width: 60px;
+            height: 60px;
+            margin-left: 10px;
+            float: left;
+            border-radius: 60px;
+            border: 1px solid #fff;
+            background-image: url(../image/nvtou3.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .tou-img img {
+            border-radius: 59px;
+        }
+
+        .scorl .dongtai {
+            width: 100px;
+            height: 30px;
+            float: right;
+            position: relative;
+            top: 17%;
+            right: -4%;
+            border-radius: 50px;
+            font-size: 14px;
+            color: #fff;
+            text-align: center;
+            line-height: 30px;
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+
+        .name {
+            height: 33px;
+            color: #fff;
+            margin-left: 10px;
+            margin-top: 5px;
+            display: inline-flex;
+            line-height: 40px;
+            font-size: 17px;
+        }
+
+        .name .yuan {
+            position: relative;
+            top: 30%;
+            border-radius: 30px;
+            margin-left: 10px;
+            width: 15px;
+            height: 15px;
+            background-color: #00a4ff;
+            text-align: center;
+        }
+
+        .name img {
+            width: 10px;
+            text-align: center;
+            line-height: 30px;
+            display: inline-block;
+            vertical-align: top;
+            margin: 2px;
+        }
+
+        .id {
+            width: 70px;
+            font-size: 11px;
+            text-align: center;
+            margin-left: 10px;
+            line-height: 13px;
+            margin-top: 5px;
+            color: #fff;
+            height: 13px;
+            border-radius: 40px;
+            background-color: rgba(10, 10, 10, 0.2);
+        }
+        .zan {
+            margin-left: 10px;
+            color: #fff;
+            height: 20px;
+            margin-top: 5px;
+        }
+
+        .zan li {
+            float: left;
+            margin-right: 20px;
+        }
+
+        .zan li .zi {
+            font-size: 13px;
+        }
+
+        .gongneng {
+            height: 68px;
+            width: 100%;
+            text-align: center;
+            background-color: #fff;
+            color: #fff;
+            line-height: 44px;
+            font-size: 20px;
+        }
+
+        .gongneng .list {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-orient: horizontal;
+            -webkit-flex-flow: row;
+            flex-flow: row;
+            position: relative;
+            width: 100%;
+            height: 40px;
+            background-color: #fff;
+            /*border-bottom: 1px solid #ececec;*/
+        }
+
+        .menu {
+            -webkit-box-flex: 1;
+            -webkit-flex: 1;
+            flex: 1;
+            width: 100%;
+            height: 100%;
+            /*line-height: 116px;*/
+            text-align: center;
+            font-size: 11px;
+            color: #404041;
+            text-align: center;
+        }
+
+        .list img {
+            position: relative;
+            top: 39%;
+            left: 36%;
+            width: 24px;
+        }
+
+        .list span {
+            margin-top: 10px;
+        }
+
+        .guanggao {
+            height: 92px;
+            width: 100%;
+            background-color: #fff;
+            padding: 10px;
+        }
+        .liebiao-shenhe {
+          margin-bottom: 15px;
+        }
+
+        .aui-list-item-arrow,.aui-list-arrow {
+            font-size: 14px;
+        }
+
+        .aui-list-in li {
+            height: 50px;
+        }
+        .aui-iconfont img {
+          width: 20px;
+        }
+        .liebiao-yejian {
+          margin-bottom: 15px;
+        }
+        li .active {
+           background-color: rgba(240, 240, 240, 0.7);
+        }
+    </style>
+</head>
+
+<body class="wrap">
     <div id="header" class="header">
+        <!-- 设置 -->
         <div class="shezhi">
-            <div class="right">
-               <i class="aui-iconfont aui-icon-gear"></i>
+            <div class="right" tapmode onclick="fnOpenSheZhi()">
+                <i class="aui-iconfont aui-icon-gear"></i>
+            </div>
+        </div>
+        <!-- 头像和空间动态  -->
+        <div class="scorl">
+            <!-- 头像  -->
+            <div class="tou-img">
+
+            </div>
+            <!-- 空间状态 -->
+            <div class="dongtai">
+                空间动态>>
+            </div>
+
+        </div>
+        <!-- name名字 -->
+        <div class="name">
+            -小孩纸不幼稚
+            <div class="yuan">
+                <img src="../image/men.png" alt="">
+            </div>
+        </div>
+        <!-- IDnumber -->
+        <div class="id">
+            ID:1414107
+        </div>
+        <!-- 获赞 关注 粉丝 -->
+        <div class="zan">
+            <ul>
+                <li>
+                    <span>128</span>
+                    <span class="zi">获赞</span>
+                </li>
+                <li>
+                    <span>2</span>
+                    <span class="zi">关注</span>
+                </li>
+                <li>
+                    <span>1</span>
+                    <span class="zi">粉丝</span>
+                </li>
+            </ul>
+        </div>
+
+
+    </div>
+    <!--  我的帖子 我的评论 我的收藏 我赞过的 我的钱包 -->
+    <div class="gongneng">
+        <div class="list">
+            <div class="menu" tapmode="selected">
+                <img src="../image/wendang.png" alt="">
+                <span>我的帖子</span>
+            </div>
+            <div class="menu" tapmode="selected">
+                <img src="../image/xiaoxi.png" alt="">
+                <span>我的评论</span>
+            </div>
+            <div class="menu" tapmode="selected">
+                <img src="../image/shoucangjia.png" alt="">
+                <span>我的收藏</span>
+            </div>
+            <div class="menu" tapmode="selected">
+                <img src="../image/jiantou.png" alt="">
+                <span>我赞过的</span>
+            </div>
+            <div class="menu" tapmode="selected">
+                <img src="../image/qianbao.png" alt="">
+                <span>我的钱包</span>
             </div>
 
         </div>
     </div>
+    <!-- 广告 -->
+    <div class="guanggao">
+        <img src="../image/guanggao2.jpg" alt="">
+    </div>
+    <!-- 列表 从审核专区到小黑屋 -->
+    <div class="liebiao-shenhe">
+        <ul class="aui-list aui-list-in">
+            <li class="aui-list-item" style="padding-left:10px;background-position: 1.75rem bottom;" tapmode onclick="fnOpenMy_ShenHe()">
+                <div class="aui-list-item-label-icon">
+                    <i class="aui-iconfont">
+                      <img src="../image/shenhe.jpg" alt="">
+                    </i>
+                </div>
+                <div class="aui-list-item-inner aui-list-item-arrow">
+                    审核专区
+                </div>
+            </li>
+            <li class="aui-list-item" style="padding-left:10px;background-position: 1.75rem bottom;">
+                <div class="aui-list-item-label-icon">
+                  <i class="aui-iconfont">
+                    <img src="../image/xunzhang.jpg" alt="">
+                  </i>
+                </div>
+                <div class="aui-list-item-inner aui-list-item-arrow">
+                    最右勋章
+                </div>
+            </li>
+            <li class="aui-list-item" style="padding-left:10px;background-position: 1.75rem bottom;">
+                <div class="aui-list-item-label-icon">
+                  <i class="aui-iconfont">
+                    <img src="../image/taidu.jpg" alt="">
+                  </i>
+                </div>
+                <div class="aui-list-item-inner aui-list-item-arrow">
+                    右友态度
+                    <h6 style="font-size:12px;color:#b8b8b8;">青少年价值学院</h6>
+                </div>
 
-  </body>
-  <script type="text/javascript" src="../script/api.js"></script>
-  <script type="text/javascript">
-      apiready = function(){
-          var header = $api.byId('header');
-          $api.fixStatusBar(header);
+            </li>
+            <li class="aui-list-item" style="padding-left:10px;background-position: 1.75rem bottom;">
+                <div class="aui-list-item-label-icon">
+                  <i class="aui-iconfont">
+                    <img src="../image/liulan.jpg" alt="">
+                  </i>
+                </div>
+                <div class="aui-list-item-inner aui-list-item-arrow">
+                    浏览历史
+                    <h6 style="font-size:12px;color:#b8b8b8;">467</h6>
+                </div>
+            </li>
+            <li class="aui-list-item" style="padding-left:10px;background-position: 1.75rem bottom;">
+                <div class="aui-list-item-label-icon">
+                  <i class="aui-iconfont">
+                    <img src="../image/xiazai.jpg" alt="">
+                  </i>
+                </div>
+                <div class="aui-list-item-inner aui-list-item-arrow">
+                    我的下载
+                </div>
+            </li>
+            <li class="aui-list-item" style="padding-left:10px;background-position: 1.75rem bottom;">
+                <div class="aui-list-item-label-icon">
+                  <i class="aui-iconfont">
+                    <img src="../image/family.jpg" alt="">
+                  </i>
+                </div>
+                <div class="aui-list-item-inner aui-list-item-arrow">
+                    最右Family
+                    <h6 style="font-size:12px;color:#b8b8b8;">流量卡免费领取!</h6>
+                </div>
+            </li>
+            <li class="aui-list-item" style="padding-left:10px;background-position: 1.75rem bottom;">
+                <div class="aui-list-item-label-icon">
+                  <i class="aui-iconfont">
+                    <img src="../image/shenhe.jpg" alt="">
+                  </i>
+                </div>
+                <div class="aui-list-item-inner aui-list-item-arrow">
+                    小黑屋
+                </div>
+            </li>
+        </ul>
+    </div>
+    <!-- 列表 从夜间模式到推荐给好友 -->
+    <div class="liebiao-yejian">
+      <ul class="aui-list aui-list-in">
+          <li class="aui-list-item" style="padding-left:10px;background-position: 1.75rem bottom;">
+            <div class="aui-list-item-label-icon">
+                <i class="aui-iconfont">
+                  <img src="../image/yejian.jpg" alt="">
+                </i>
+            </div>
+              <div class="aui-list-item-inner aui-list-arrow">
+                  <div class="twoline">
+                      <span>夜间模式</span>
+                  </div>
 
+                  <div class="aui-list-item-right">
+                      <input type="checkbox" class="aui-switch">
+                  </div>
 
-      };
-  </script>
-  </html>
+              </div>
+          </li>
+          <li class="aui-list-item" style="padding-left:10px;background-position: 1.75rem bottom;">
+              <div class="aui-list-item-label-icon">
+                  <i class="aui-iconfont">
+                    <img src="../image/shipin.jpg" alt="">
+                  </i>
+              </div>
+              <div class="aui-list-item-inner aui-list-item-arrow">
+                  视频壁纸
+              </div>
+          </li>
+          <li class="aui-list-item" style="padding-left:10px;background-position: 1.75rem bottom;" tapmode onclick="fnOpenMy_Help()">
+              <div class="aui-list-item-label-icon">
+                  <i class="aui-iconfont">
+                    <img src="../image/help.jpg" alt="">
+                  </i>
+              </div>
+              <div class="aui-list-item-inner aui-list-item-arrow">
+                  帮助与反馈
+              </div>
+          </li>
+
+          <li  class="aui-list-item" style="padding-left:10px;background-position: 1.75rem bottom;"  tapmode="active" onclick="sharetext()">
+              <div class="aui-list-item-label-icon">
+                  <i class="aui-iconfont">
+                    <img src="../image/tuijian.jpg" alt="">
+                  </i>
+              </div>
+              <div class="aui-list-item-inner aui-list-item-arrow">
+
+                  推荐给朋友
+
+              </div>
+          </li>
+
+          </ul>
+    </div>
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript">
+    apiready = function() {
+        var header = $api.byId('header');
+        $api.fixStatusBar(header);
+    };
+    function fnOpenMy_ShenHe() {
+      api.openWin({
+          name: 'my_shenhe',
+          url: './my_shenhe.html',
+          pageParam: {
+              name: 'test'
+          }
+      });
+
+    }
+    // 设置页面
+    function fnOpenSheZhi(){
+      api.openWin({
+          name: 'shezhi',
+          url: './shezhi.html',
+          pageParam: {
+              name: 'test'
+          }
+      });
+    }
+    // 分享模块
+    function sharetext() {
+    var sharedModule = api.require('shareAction');
+    sharedModule.share({
+        text: '推荐一个有趣的APPWe Are这里有逗比神评论、萌暖的are友，每天笑个不停，快一起玩吧！',
+        type: 'text'
+    });
+};
+    function fnOpenMy_Help(){
+      api.openWin({
+          name: 'my_help',
+          url: './my_help.html',
+          pageParam: {
+              name: 'test'
+          }
+      });
+
+    }
+</script>
+
+</html>

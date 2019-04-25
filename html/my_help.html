@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+    <title>我的-帮助与反馈</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <link rel="stylesheet" type="text/css" href="../css/aui.css" />
+    <style>
+        html,
+        body {
+            height: 100%;
+            background-color: #fff;
+            margin: 0;
+        }
+
+        .wrap {
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-flex-flow: column;
+        }
+
+        header {
+            height: 74px;
+            width: 100%;
+            text-align: center;
+            background-color: #fff;
+            color: #fff;
+            line-height: 44px;
+            font-size: 20px;
+        }
+
+        header .list {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-orient: horizontal;
+            -webkit-flex-flow: row;
+            flex-flow: row;
+            position: relative;
+            width: 100%;
+            height: 40px;
+            background-color: #fff;
+            /*border-bottom: 1px solid #ececec;*/
+        }
+
+        .menu {
+            -webkit-box-flex: 1;
+            -webkit-flex: 1;
+            flex: 1;
+            width: 100%;
+            height: 40px;
+            line-height: 40px;
+            font-size: 14px;
+            color: #404041;
+            text-align: center;
+        }
+
+        header .list .search {
+            width: 40px;
+        }
+
+        header .list img {
+            position: absolute;
+            top: 20%;
+            left: 2%;
+            width: 23px;
+        }
+        header .jiaoliuqu{
+          float: right;
+          position: relative;
+          top: 10px;
+          left: 37%;
+          width: 55px;
+          border-radius: 32px;
+          height: 23px;
+          background-color: #d1edff;
+          color: #3da9ed;
+          font-size: 13px;
+          font-weight: bold;
+          text-align: center;
+          line-height: 25px;
+        }
+
+      #footer {
+        height: 50px;
+        /*background-color: red;*/
+        padding: 10px 0px;
+        box-shadow: 0 0 3px rgba(0,0,0,0.2);
+
+      }
+      #footer .footerzhong {
+        /*background-color: yellow;*/
+        font-size: 15px;
+        margin-top: 2px;
+      }
+      .footer-left {
+        float: left;
+        width: 50%;
+      }
+      .footer-right {
+        float: right;
+        width: 50%;
+        border-left: 1px solid #ccc;
+      }
+    </style>
+</head>
+
+<body class="wrap">
+    <header id="header">
+        <div class="list">
+            <div class="search" tapmode onclick="api.closeWin()"><img src="../image/left.png" alt=""></div>
+            <p style="margin-left:10px;">关闭</p>
+            <h6 style="margin-left:30px;color:#000;">帮助与反馈</h6>
+            <div class="jiaoliuqu">
+              交流区
+            </div>
+        </div>
+
+    </header>
+    <footer  id="footer" class="aui-bar aui-bar-tab">
+      <div class="footerzhong">
+        <div class="footer-left">
+          查看反馈
+        </div>
+        <div class="footer-right aui-active">
+
+          我要反馈
+        </div>
+      </div>
+
+
+    </footer>
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript">
+    apiready = function() {
+        var header = $api.byId('header');
+        var footer = $api.byId('footer');
+        $api.fixStatusBar(header);
+
+
+        var headerH = $api.offset(header).h;
+        var footerH = $api.offset(footer).h;
+        
+
+        api.openFrame({
+            name: 'my_help_frame',
+            url: './my_help_frame.html',
+            rect: {
+                x: 0,
+                y: headerH,
+                w: 'auto',
+                h: 'auto',
+                marginBottom:52,
+
+            },
+            pageParam: {
+                name: 'test'
+            },
+            bounces: true,
+            bgColor: 'rgba(0,0,0,0)',
+            vScrollBarEnabled: true,
+            hScrollBarEnabled: true
+        });
+
+
+    };
+</script>
+
+</html>
