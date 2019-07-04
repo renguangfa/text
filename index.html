@@ -108,11 +108,11 @@
               bgColor : 'rgba(0,0,0,.2)',
             },]
         }, function (ret, err) {
-<<<<<<< HEAD
+
           // console.log('framegroup:'+ret.index)
-=======
-          console.log('framegroup:'+ret.index)
->>>>>>> eeb4f268d347d6fe60c68cab8e1aed8d10957459
+
+          // console.log('framegroup:'+ret.index)
+
               if(ret.index == 0) {
                 api.setFrameGroupAttr({
                     name: 'mainFrameGroup',
@@ -148,11 +148,10 @@
         api.setFrameGroupIndex({
             name: 'group',
             index: (ret.index-1),
-<<<<<<< HEAD
-            scroll: false
-=======
+
+
             scroll: true
->>>>>>> eeb4f268d347d6fe60c68cab8e1aed8d10957459
+
         });
 
     });
